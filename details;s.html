@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VVIP Auction | Auction Details 👁 </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #333;
+            color: #ccc;
+            min-height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        header {
+            background-color: #4c96af;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .toggle-light-mode {
+            background: #555;
+            border: none;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            box-shadow: 0 4px #999;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        .toggle-light-mode:active {
+            background-color: #444;
+            box-shadow: 0 2px #666;
+            transform: translateY(2px);
+        }
+        .container {
+            background-color: #444;
+            color: #ccc;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 1em;
+            transition: background-color 0.3s, color 0.3s;
+            max-width: 800px;
+        }
+        h2 {
+            color: #4c96af;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 1em;
+            line-height: 1.5;
+        }
+        li span {
+            color: #4c96af;
+            font-weight: bold;
+        }
+        footer {
+            margin-top: 2em;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+        .light-mode {
+            background-color: #f4f4f4;
+            color: #000;
+        }
+        .light-mode .container {
+            background-color: white;
+            color: black;
+        }
+        .light-mode h2 {
+            color: #6045a0;
+        }
+        .light-mode li span {
+            color: #6045a0;
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <header>
+        <h1>VVIP Auction Details</h1>
+        <button class="toggle-light-mode" onclick="toggleLightMode()">Toggle Light Mode</button>
+    </header>
+    <div class="container">
+        <h2>What's Included in the Auction:</h2>
+        <ul>
+            <li>Email access to a special <span>@CallMeShylo</span> address (not open to any other students) (<span>$5000+</span>)</li>
+            <li>Q&A Sessions #AskMeAnything (<span>$369/session</span>)</li>
+            <li>Life, Health & Wellbeing Training That Makes U A Master of Life And Therefore Trading (<span>$996-$1999/year</span>)</li>
+            <li>Access to #Aftershock Lecture Series (<span>$2808/year</span>)</li>
+            <li>Access to longer, periodic 1-1 calls with Shylo (RRP <span>$3693+</span> per call to outside students)</li>
+            <li>Special VVIP Mastermind/Tutorial Group with Classmates (<span>$996 per session</span>)</li>
+            <li>Discounted Priority Access To The Shylo Suite Beta v1 when released [TBC] (<span>$369/month+</span> for basic up to $1000s)</li>
+            <li>Special In-Person Retreat - first pick at specialised VVIP Rate if interested with no formal interview process required (<span>$39,999 RRP</span>)</li>
+            <li>Holistic, personalized psychological help from Anna (<span>$666 per 20 minute check-in</span>)</li>
+            <li>Institutional-grade proprietary alpha when the time is right [TBC] (<span>$$$</span>)</li>
+            <li>And if U stay true to this rare process</li>
+            <li>Without expectation of hand holding and time spent</li>
+            <li>Vs knowledge and skill received (<span>$priceless</span>)</li>
+            <li>Worth <span>$69,000+</span> to have a lifetime of immeasurable wealth ahead of applying the work beyond trading</li>
+        </ul>
+        <p>This is why we bid this starting at an extraordinarily low price so dedicated students have a chance.</p>
+        <p>This takes time and effort away from Shylo’s life, trading, and philanthropic work to give a select few of you this holistic experience which Shylo had to give up a multi 6-figure salary for to Mentor O to receive his training.</p>
+        <p><strong>Skip the queue (automatic place): <span>$33,369 TODAY ONLY</span></strong></p>
+        <p>Per 6 bids, the current highest bid will be added to the skip the queue price.</p>
+    </div>
+    <footer>
+        <p>&copy; 2024 #TheOrder 🗝. All rights reserved.</p>
+    </footer>
+    <script>
+        // Light Mode Toggle
+        function toggleLightMode() {
+            document.body.classList.toggle('light-mode');
+        }
+    </script>
+</body>
+</html>
