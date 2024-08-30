@@ -77,10 +77,27 @@
             color: #4c96af;
             font-weight: bold;
         }
-        footer {
-            margin-top: 2em;
-            color: #aaa;
-            font-size: 0.9em;
+        .live-auction {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 1em;
+            text-align: center;
+        }
+        .bid-now-button {
+            margin-top: 0.5em;
+            padding: 0.7em 1.5em;
+            background-color: #FF0000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            box-shadow: 0 4px #999;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .bid-now-button:hover {
+            background-color: #cc0000;
         }
         .light-mode {
             background-color: #f4f4f4;
@@ -130,6 +147,12 @@
             font-style: italic;
             font-weight: bold;
         }
+        footer {
+            margin-top: 2em;
+            color: #aaa;
+            font-size: 0.9em;
+            text-align: center;
+        }
     </style>
 </head>
 <body class="dark-mode">
@@ -137,7 +160,12 @@
         <h1>VVIP Auction Details</h1>
         <button class="toggle-light-mode" onclick="toggleLightMode()">Toggle Light Mode</button>
     </header>
+
     <div class="container">
+        <div class="live-auction">
+            LIVE AUCTION:
+            <a href="https://callmeshylo.github.io/TheVVIPAuction/" class="bid-now-button">BID NOW (LIMITED TIME)</a>
+        </div>
         <h2>What's Included?</h2>
         <ul>
             <li>Email access to a special <span>@CallMeShylo</span> address (not open to any other students) (<span>$5000+</span>)</li>
@@ -159,12 +187,18 @@
             Skip the Queue
         </button>
         <p class="italic-bold">NOTE: Per 6 bids, the current highest bid will be added to the skip the queue price.</p>
+    <div class="container">
+        <div class="live-auction">
+            LIVE AUCTION:
+            <a href="https://callmeshylo.github.io/TheVVIPAuction/" class="bid-now-button">BID NOW (LIMITED TIME)</a>
+        </div>
     </div>
+
     <footer>
         <p>&copy; 2024 #TheOrder 🗝. All rights reserved.</p>
     </footer>
+
     <script>
-        // Light Mode Toggle
         function toggleLightMode() {
             document.body.classList.toggle('light-mode');
         }
