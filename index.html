@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VVIP Auction | Auction Details 👁 </title>
+    <title>VVIP Auction | Auction Details</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -91,6 +91,26 @@
         .light-mode li span {
             color: #6045a0;
         }
+        .skip-queue-button {
+            margin-top: 1em;
+            padding: 0.7em 1.5em;
+            background-color: #4c96af;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            box-shadow: 0 4px #999;
+            transition: background-color 0.3s;
+        }
+        .skip-queue-button:hover {
+            background-color: #6045a0;
+        }
+        .skip-queue-button:active {
+            background-color: #444;
+            box-shadow: 0 2px #666;
+            transform: translateY(2px);
+        }
     </style>
 </head>
 <body class="dark-mode">
@@ -119,6 +139,9 @@
         <p>This is why we bid this starting at an extraordinarily low price so dedicated students have a chance.</p>
         <p>This takes time and effort away from Shylo’s life, trading, and philanthropic work to give a select few of you this holistic experience which Shylo had to give up a multi 6-figure salary for to Mentor O to receive his training.</p>
         <p><strong>Skip the queue (automatic place): <span>$33,369 TODAY ONLY</span></strong></p>
+        <button class="skip-queue-button" onclick="window.location.href='mailto:callmeshylo7@gmail.com?subject=I%20WISH%20TO%20SKIP%20THE%20QUEUE';">
+            Skip the Queue
+        </button>
         <p>Per 6 bids, the current highest bid will be added to the skip the queue price.</p>
     </div>
     <footer>
