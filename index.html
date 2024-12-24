@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VVIP Auction Details - Exclusive membership benefits and opportunities">
     <title>VVIP Auction | VVIP Details</title>
     <style>
+        :root {
+            --primary-color: #4c96af;
+            --secondary-color: #6045a0;
+            --dark-bg: #333;
+            --dark-container: #444;
+            --light-bg: #f4f4f4;
+            --light-container: #ffffff;
+            --accent-red: #FF0000;
+            --text-light: #ccc;
+            --text-dark: #333;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -12,198 +25,291 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            background-color: #333;
-            color: #ccc;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
             min-height: 100vh;
             transition: background-color 0.3s, color 0.3s;
         }
+
         header {
-            background-color: #4c96af;
+            background-color: var(--primary-color);
             color: white;
-            padding: 1em;
+            padding: 1.5em;
             text-align: center;
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         .toggle-light-mode {
             background: #555;
             border: none;
             color: white;
             font-size: 1em;
             cursor: pointer;
-            padding: 0.5em 1em;
+            padding: 0.7em 1.2em;
             border-radius: 5px;
             box-shadow: 0 4px #999;
             position: absolute;
-            right: 10px;
-            top: 10px;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all 0.3s ease;
         }
-        .toggle-light-mode:active {
-            background-color: #444;
-            box-shadow: 0 2px #666;
-            transform: translateY(2px);
-        }
+
         .container {
-            background-color: #444;
-            color: #ccc;
-            padding: 2em;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 1em;
-            transition: background-color 0.3s, color 0.3s;
+            background-color: var(--dark-container);
+            color: var(--text-light);
+            padding: 2.5em;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 2em auto;
+            transition: all 0.3s ease;
             max-width: 800px;
+            width: 90%;
         }
+
         h2 {
-            color: #4c96af;
-            font-size: 1.5em;
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-bottom: 1em;
         }
+
         ul {
             list-style-type: none;
             padding: 0;
+            margin: 0;
         }
+
         li {
-            margin-bottom: 1em;
-            line-height: 1.5;
+            margin-bottom: 1.2em;
+            line-height: 1.6;
+            padding-left: 1.5em;
+            position: relative;
+            transition: transform 0.2s ease;
         }
+
+        li:hover {
+            transform: translateX(5px);
+        }
+
         li::before {
-            content: "- ";
-            font-weight: bold;
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
         }
+
         li span {
-            color: #4c96af;
+            color: var(--primary-color);
             font-weight: bold;
         }
+
         .live-auction {
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-top: 1em;
+            background-color: rgba(76, 150, 175, 0.1);
+            padding: 2em;
+            border-radius: 8px;
             text-align: center;
+            margin-bottom: 2em;
         }
+
         .bid-now-button {
-            margin-top: 0.5em;
-            padding: 0.7em 1.5em;
-            background-color: #FF0000;
+            display: inline-block;
+            margin-top: 1em;
+            padding: 1em 2em;
+            background-color: var(--accent-red);
             color: white;
             border: none;
             cursor: pointer;
-            border-radius: 5px;
-            font-size: 1em;
-            box-shadow: 0 4px #999;
+            border-radius: 8px;
+            font-size: 1.1em;
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
+
         .bid-now-button:hover {
             background-color: #cc0000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
         }
+
         .limited-time-text {
-            font-size: 0.8em;
-            margin-top: 0.5em;
-            color: #FF0000;
+            font-size: 0.9em;
+            margin-top: 0.8em;
+            color: var(--accent-red);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .light-mode {
-            background-color: #f4f4f4;
-            color: #000;
-        }
-        .light-mode .container {
-            background-color: white;
-            color: black;
-        }
-        .light-mode h2 {
-            color: #6045a0;
-        }
-        .light-mode li span {
-            color: #6045a0;
-        }
+
         .skip-queue-text {
-            font-size: 1.25em;
+            font-size: 1.4em;
             font-weight: bold;
-            margin-top: 1em;
+            margin: 1.5em 0;
+            padding: 1em;
+            background-color: rgba(76, 150, 175, 0.1);
+            border-radius: 8px;
+            text-align: center;
         }
+
         .skip-queue-button {
-            margin-top: 0.5em;
-            padding: 0.7em 1.5em;
-            background-color: #4c96af;
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 1.5em auto;
+            padding: 1em;
+            background-color: var(--primary-color);
             color: white;
             border: none;
             cursor: pointer;
-            border-radius: 5px;
-            font-size: 1em;
-            box-shadow: 0 4px #999;
-            transition: background-color 0.3s;
+            border-radius: 8px;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
         }
+
         .skip-queue-button:hover {
-            background-color: #6045a0;
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
         }
-        .skip-queue-button:active {
-            background-color: #444;
-            box-shadow: 0 2px #666;
-            transform: translateY(2px);
-        }
+
         .highlight {
-            font-size: 1.3em;
+            font-size: 1.4em;
             font-weight: bold;
-            margin-top: 1em;
+            margin: 1.5em 0;
+            padding: 1em;
+            background-color: rgba(255, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
         }
+
         .italic-bold {
             font-style: italic;
             font-weight: bold;
-        }
-        footer {
-            margin-top: 2em;
-            color: #aaa;
-            font-size: 0.9em;
             text-align: center;
+            margin-top: 1em;
+            color: #ff6b6b;
+        }
+
+        footer {
+            margin: 2em 0;
+            padding: 1em;
+            color: #aaa;
+            text-align: center;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Light mode styles */
+        body.light-mode {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+        }
+
+        body.light-mode .container {
+            background-color: var(--light-container);
+            color: var(--text-dark);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-mode h2,
+        body.light-mode li span {
+            color: var(--secondary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5em;
+                margin: 1em auto;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .live-auction {
+                padding: 1.5em;
+            }
+
+            .bid-now-button,
+            .skip-queue-button {
+                padding: 0.8em 1.5em;
+            }
+
+            .highlight {
+                font-size: 1.2em;
+                padding: 0.8em;
+            }
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary-color: #0066cc;
+                --secondary-color: #6600cc;
+                --accent-red: #cc0000;
+            }
         }
     </style>
 </head>
-<body class="dark-mode">
+<body>
     <header>
         <h1>VVIP Details (Interview Required)</h1>
-        <button class="toggle-light-mode" onclick="toggleLightMode()">Toggle Light Mode</button>
+        <button class="toggle-light-mode" onclick="toggleLightMode()" aria-label="Toggle light/dark mode">
+            Toggle Light Mode
+        </button>
     </header>
 
     <div class="container">
-        <div class="live-auction">
-            LIVE AUCTION:
-            <a href="https://callmeshylo.github.io/TheVVIPAuction/" class="bid-now-button">BID NOW</a>
-            <p></p>
-            <p class="limited-time-text">LIMITED TIME</p>
+        <div class="live-auction" role="banner">
+            <h2>LIVE AUCTION</h2>
+            <a href="https://callmeshylo.github.io/TheVVIPAuction/" class="bid-now-button" role="button">BID NOW</a>
+            <p class="limited-time-text">LIMITED TIME OFFER</p>
         </div>
-        <h2>What's Included?</h2>
-        <ul>
-            <li>Email access to a special <span>@CallMeShylo</span> address (<b>not open to any other students</b>) (<span>£6000+/year</span>)</li>
-            <li>Q&A Sessions <b>#AskMeAnything</b> (<span>£669/session</span>)</li>
-            <li>Life, Health & Wellbeing Training That Makes U A <b>Master of Life</b> And, Therefore, Trading (<span>£996-£1999/year</span>)</li>
-            <li>Access to <b>#Aftershock</b> Lecture Series (<span>£2808/year</span>)</li>
-            <li>Access to longer, periodic <b>1-1/tutorial calls</b> with Shylo (RRP <span>£3693+ per call-£3693+/per 30 min call</span> to external students)</li>
-            <li>Special <b>VVIP Mastermind/Tutorial Group</b> with Classmates (<span>£996 per session</span>)</li>
-            <li>Discounted <b>Priority Access</b> To The Shylo Suite Beta v1 when released [TBC late 25/26] (<span>£369/month+</span> for basic up to <span>£1000/month</span> advanced)</li>
-            <li>Special In-Person Retreat - first pick at <b>specialised VVIP Rate</b> if interested with no formal interview process required (<span>£39,999 RRP</span>)</li>
-            <li>Holistic, personalized <b>psychological help</b> from Anna when required (<span>£963 per 20 minute check-in</span>)</li>
-            <li>Institutional-grade proprietary alpha <b>when the time is right [TBC]</b> (<span>£££</span>)</li>
-            <li>ONE student who proves worth, profitability and success <b>over time</b> granted access to joint <span>£7+ figure account</span></li>
-            <li>If U stay true to this <b>rare process</b></li>
-            <li>Without expectation of hand holding and time spent vs <b>knowledge and mentorship gained</b> (<span>£priceless</span>)</li>
-        </ul>
-        <p class="highlight">***WORTH <span>£69,000+</span> to have a lifetime of immeasurable wealth ahead of applying the work beyond trading***</p>
-        <p class="skip-queue-text">Skip The Queue (AUTOMATIC PLACE): <span>£27,963 </span></p>
-        <button class="skip-queue-button" onclick="window.location.href='mailto:callmeshylo7@gmail.com?subject=I%20WISH%20TO%20SKIP%20THE%20QUEUE';">
-            Skip The Queue
-        </button>
-        <p></p>
-        <p class="italic-bold">NOTE: Per 9 bids, the current highest bid will be added to the skip the queue price</p>
+
+        <section>
+            <h2>What's Included?</h2>
+            <ul>
+                <li>Email access to a special <span>@CallMeShylo</span> address (<b>not open to any other students</b>) (<span>£6000+/year</span>)</li>
+                <li>Q&A Sessions <b>#AskMeAnything</b> (<span>£669/session</span>)</li>
+                <li>Life, Health & Wellbeing Training That Makes U A <b>Master of Life</b> And, Therefore, Trading (<span>£996-£1999/year</span>)</li>
+                <li>Access to <b>#Aftershock</b> Lecture Series (<span>£2808/year</span>)</li>
+                <li>Access to longer, periodic <b>1-1/tutorial calls</b> with Shylo (<span>£3693+ per call</span>)</li>
+                <li>Special <b>VVIP Mastermind/Tutorial Group</b> with Classmates (<span>£996 per session</span>)</li>
+                <li>Discounted <b>Priority Access</b> To The Shylo Suite Beta v1 (<span>£369-£1000/month</span>)</li>
+                <li>Special In-Person Retreat at <b>VVIP Rate</b> (<span>£39,999 RRP</span>)</li>
+                <li>Holistic, personalized <b>psychological help</b> from Anna (<span>£963 per 20 minute check-in</span>)</li>
+                <li>Institutional-grade proprietary alpha <b>[TBC]</b> (<span>£££</span>)</li>
+                <li>Opportunity for proven student to access joint <span>£7+ figure account</span></li>
+            </ul>
+
+            <p class="highlight">Total Value: <span>£69,000+</span> for lifetime wealth potential</p>
+            
+            <p class="skip-queue-text">Skip The Queue (AUTOMATIC PLACE): <span>£27,963</span></p>
+            <button class="skip-queue-button" onclick="window.location.href='mailto:callmeshylo7@gmail.com?subject=I%20WISH%20TO%20SKIP%20THE%20QUEUE';">
+                Skip The Queue
+            </button>
+            
+            <p class="italic-bold">NOTE: Per 9 bids, the current highest bid will be added to the skip the queue price</p>
+        </section>
     </div>
 
     <div class="container">
-        <div class="live-auction">
-            LIVE AUCTION:
-            <a href="https://callmeshylo.github.io/TheVVIPAuction/" class="bid-now-button">BID NOW</a>
-            <p></p>
-            <p class="limited-time-text">LIMITED TIME</p>
+        <div class="live-auction" role="banner">
+            <h2>LIVE AUCTION</h2>
+            <a href="https://callmeshylo.github.io/TheVVIPAuction/" class="bid-now-button" role="button">BID NOW</a>
+            <p class="limited-time-text">LIMITED TIME OFFER</p>
         </div>
     </div>
 
@@ -214,6 +320,14 @@
     <script>
         function toggleLightMode() {
             document.body.classList.toggle('light-mode');
+            const button = document.querySelector('.toggle-light-mode');
+            const isDarkMode = !document.body.classList.contains('light-mode');
+            button.setAttribute('aria-pressed', !isDarkMode);
+        }
+
+        // Initialize light/dark mode based on user preference
+        if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.body.classList.add('light-mode');
         }
     </script>
 </body>
